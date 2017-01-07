@@ -1,0 +1,16 @@
+gitlab_server:
+  image: 'gitlab/gitlab-ce:latest'
+  restart: always
+  environment:
+    GITLAB_OMNIBUS_CONFIG: |
+      external_url 'https://${HOSTNAME}'
+      registry_external_url 'https://${HOSTNAME}:5005'
+  ports:
+    - '80:80'
+    - '443:443'
+    - '222:22'
+    - '5005:5005'
+  volumes:
+    - './config:/etc/gitlab'
+    - './logs:/var/log/gitlab'
+    - './data:/var/opt/gitlab'
