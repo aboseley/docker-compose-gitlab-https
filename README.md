@@ -1,4 +1,3 @@
-
 I'm trying to setup a local network gitlab server with a functioning docker container registry.  
 The docker registry expects to run with a https connect. 
 
@@ -15,5 +14,15 @@ On the server you want to run the gitlab serve run.
 ```
 
 To securely connect
-- import "config/trusted-certs/ca.cert" into your browser as an authority certificate
-- then open https://<gitlab_hostname> 
+- the certificate "config/trusted-certs/<ca_name>Certificate.self.cert" needs
+  to be installed onto the connecting machine
+
+Install into browser
+- install it into the browser as an "authorities" certificate
+
+Install into client docker daemon
+- to run 'docker login' on another machine the be installed into
+  /etc/docker/certs.d/<server_name>:5005
+- restart the daemon
+`sudo service docker restart`
+
