@@ -10,7 +10,6 @@ On the server you want to run the gitlab serve run.
 ``` bash
   make
   docker-compose up
-  hostname
 ```
 
 To securely connect
