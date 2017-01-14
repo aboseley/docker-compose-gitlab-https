@@ -4,6 +4,7 @@ gitlab_server:
   environment:
     GITLAB_OMNIBUS_CONFIG: |
       external_url 'https://${HOSTNAME}'
+      gitlab_rails['gitlab_shell_ssh_port'] = 222
       registry_external_url 'https://${HOSTNAME}:5005'
   ports:
     - '80:80'
