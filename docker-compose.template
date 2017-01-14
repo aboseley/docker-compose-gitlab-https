@@ -3,14 +3,14 @@ gitlab_server:
   restart: always
   environment:
     GITLAB_OMNIBUS_CONFIG: |
-      external_url 'https://${HOSTNAME}'
-      gitlab_rails['gitlab_shell_ssh_port'] = 222
-      registry_external_url 'https://${HOSTNAME}:5005'
+      external_url 'https://${HOSTNAME}:${HTTPS_PORT}'
+      registry_external_url 'https://${HOSTNAME}:${REGISTRY_PORT}'
+      gitlab_rails['gitlab_shell_ssh_port'] = ${SSH_PORT}
+      nginx['redirect_http_to_https'] = true
   ports:
-    - '80:80'
-    - '443:443'
-    - '222:22'
-    - '5005:5005'
+    - '${HTTPS_PORT}:443
+    - '${SSH_PORT}:22'
+    - '${REGISTRY_PORT}:${REGISTRY_PORT}'
   volumes:
     - './config:/etc/gitlab'
     - './logs:/var/log/gitlab'
