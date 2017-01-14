@@ -1,4 +1,4 @@
-This makefile automates creating the tls keys/certificats to run gitlab on a local network.
+This makefile automates creating the tls keys/certificates to run gitlab on a local network.
 
 First install docker, docker-compose and make.
 On the server you want to run the gitlab serve run.
