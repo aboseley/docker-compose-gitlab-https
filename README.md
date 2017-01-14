@@ -1,5 +1,4 @@
-I'm trying to setup a local network gitlab server with a functioning docker container registry.  
-The docker registry expects to run with a https connect. 
+This makefile automates creating the tls keys/certificats to run gitlab on a local network.
 
 First install docker, docker-compose and make.
 On the server you want to run the gitlab serve run.
